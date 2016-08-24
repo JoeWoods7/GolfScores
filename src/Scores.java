@@ -7,17 +7,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Scores {
-	//private int count;
-	//private int p1 ,p2 ,p3 ,p4 ,par,parsum, hole, p1sum , p2sum ,p3sum ,p4sum;
+	final String FILENAME = "ScoreSsheet";
+
 	public Scores() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void generateScoreSheet(){
+	/**
+	 * This function will create a file names "ScoreSheet" and write the scores of 18 holes of golf
+	 * in the form of '@code{par player1score player2score player3score player4score}'.
+	 * Any existing file named "ScoreSheet" will be overwritten.
+	 */
+	public void generateRandomScoreSheet(){
 		Random rand = new Random();
 		FileWriter print;
 		try {
-			print = new FileWriter(new File("ScoreSheet"));
+			print = new FileWriter(new File(FILENAME));
 			PrintWriter pw = new PrintWriter(print);
 			//String sc = rand.nextInt(4)+3+" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1);
 
@@ -27,16 +32,17 @@ public class Scores {
 			pw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.err.println("file not found");
+			System.err.println("ioexception in generateRandomScoreSheet()");
 		}
 		
 	}
 	/**
-	 * Would be better with printf for clarity
+	 * This method analyzes the score sheet and declares a winner depending on which player's score was closer to par.
+	 * It Would be better with printf for clarity.
 	 * @throws FileNotFoundException
 	 */
 	public void readScoreSheet() throws FileNotFoundException{
-		Scanner scan = new Scanner(new File("ScoreSheet"));
+		Scanner scan = new Scanner(new File(FILENAME));
 		int count = 1;
 		int p1 = 0,p2 = 0,p3 = 0,p4 = 0,par,parsum=0, hole, p1sum = 0, p2sum = 0,p3sum = 0,p4sum = 0;
 		System.out.println("hole#\tP1 \tP2 \tP3 \tP4 ");
