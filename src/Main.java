@@ -4,8 +4,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Scores s1 = new Scores();
-		s1.generateRandomScoreSheet();
-		s1.readScoreSheet();
+		s1.generateRandomScoreSheet("ScoreSheet");
+		s1.readScoreSheet("Scoresheet");
 		
 	}
 

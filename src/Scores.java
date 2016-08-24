@@ -7,22 +7,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Scores {
-	final String FILENAME = "ScoreSheet";
+	//final String FILENAME = "ScoreSheet";//
 
 	public Scores() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * This function will create a file names "ScoreSheet" and write the scores of 18 holes of golf
-	 * in the form of @code{par player1score player2score player3score player4score}.
-	 * Any existing file named "ScoreSheet"(FILENAME) WILL be overwritten!
+	 * This function will create a file and write the scores of 18 holes of golf.
+	 * @param name Identifier of the file to write to.
 	 */
-	public void generateRandomScoreSheet(){
+	public void generateRandomScoreSheet(String name) {
 		Random rand = new Random();
 		FileWriter print;
 		try {
-			print = new FileWriter(new File(FILENAME));
+			print = new FileWriter(new File(name));
 			PrintWriter pw = new PrintWriter(print);
 			//String sc = rand.nextInt(4)+3+" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1) +" "+ (rand.nextInt(9)+1);
 
@@ -36,16 +35,18 @@ public class Scores {
 		}
 		
 	}
+
 	/**
 	 * This method analyzes the score sheet and declares a winner depending on which player's score was closer to par.
 	 * It Would be better with printf for clarity.
+	 * @param name Identifier of the file to read from.
 	 * @throws FileNotFoundException
 	 */
-	public void readScoreSheet() throws FileNotFoundException{
-		Scanner scan = new Scanner(new File(FILENAME));
+	public void readScoreSheet(String name) throws FileNotFoundException {
+		Scanner scan = new Scanner(new File(name));
 		int count = 1;
 		int p1 = 0,p2 = 0,p3 = 0,p4 = 0,par,parsum=0, hole, p1sum = 0, p2sum = 0,p3sum = 0,p4sum = 0;
-		System.out.println("hole#\tP1 \tP2 \tP3 \tP4 ");
+		System.out.println("hole#\tpar\tP1 \tP2 \tP3 \tP4 ");
 		while(scan.hasNext()){
 			hole =count;
 			par =scan.nextInt();
@@ -58,7 +59,7 @@ public class Scores {
 			p3sum+=p3;
 			p4sum+=p4;
 			parsum+=par;
-			System.out.println("#"+count+"\tpar: "+par+"\t"+p1+" \t"+p2+" \t"+p3+" \t"+p4+" \t");
+			System.out.println("#" + count + "\t\t" + par + "\t" + p1 + " \t" + p2 + " \t" + p3 + " \t" + p4 + " \t");
 			count++;
 		}
 		System.out.println(" " +"\tpar: "+parsum+"\t"+p1sum+" \t"+p2sum+" \t"+p3sum+" \t"+p4sum+" \t");
