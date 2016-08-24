@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Scores {
-	final String FILENAME = "ScoreSsheet";
+	final String FILENAME = "ScoreSheet";
 
 	public Scores() {
 		// TODO Auto-generated constructor stub
@@ -15,8 +15,8 @@ public class Scores {
 
 	/**
 	 * This function will create a file names "ScoreSheet" and write the scores of 18 holes of golf
-	 * in the form of '@code{par player1score player2score player3score player4score}'.
-	 * Any existing file named "ScoreSheet" will be overwritten.
+	 * in the form of @code{par player1score player2score player3score player4score}.
+	 * Any existing file named "ScoreSheet"(FILENAME) WILL be overwritten!
 	 */
 	public void generateRandomScoreSheet(){
 		Random rand = new Random();
