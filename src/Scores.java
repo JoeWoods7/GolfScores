@@ -15,6 +15,7 @@ public class Scores {
 
 	/**
 	 * This function will create a file and write the scores of 18 holes of golf.
+	 * in the format of <p></p><code>par player1score player2score player3score player4score</code><p></p>
 	 * @param name Identifier of the file to write to.
 	 */
 	public void generateRandomScoreSheet(String name) {
