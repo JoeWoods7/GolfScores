@@ -18,9 +18,12 @@ public class Scores {
 	 * in the format of <p></p><code>par player1score player2score player3score player4score</code><p></p>
 	 * @param name Identifier of the file to write to.
 	 */
+
+
 	public void generateRandomScoreSheet(String name) {
 		Random rand = new Random();
 		FileWriter print;
+
 		try {
 			print = new FileWriter(new File(name));
 			PrintWriter pw = new PrintWriter(print);
